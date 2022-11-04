@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>One to One interaction platform </title>
+    <link rel=' stylesheet' href='./css/style.css'>
+</head>
+
+<body>
+    <div class='main_container'>
+        <div class='dashboard_container'>
+            <div class=' logo_container '>
+                <img src='./utils/images/logo.png '></img>
+            </div>
+            <div>
+                <div class='description_container'>
+                    <p class='description_container_paragraph'>
+                        Talk with other user by passing his personal code or talk with strangers!
+                    </p>
+                </div>
+                <div class='personal_code_container'>
+                    <div class="personal_cose_title_container">
+                        <p class="personal_code_title_paragraph">
+                            Your personal code
+                        </p>
+                    </div>
+                    <div class="personal_code_value_container">
+                        <p class="personal_code_value_paragraph" id="personal_code_paragraph">#fsfx32</p>
+                        <button class="personal_code_copy_button" id="personal_code_copy_button">
+                            <img src="./utils/images/copyButton.png" alt="copy button">
+                        </button>
+                    </div>
+                </div>
+
+                <div class='call_container'></div>
+                <div class='messenger_container'></div>
+
+            </div>
+
+        </div>
+        <script src=" /socket.io/socket.io.js "></script>
+        <script src="./js/main.js " type=" 'module"></script>
+</body>
+
+</html>
