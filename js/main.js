@@ -17,5 +17,6 @@ const socket = io('localhost:3000')  // we tell our socket io that socket server
 // 1st we try to connect to the server and if the connection is a success then we would like to console successfully connected to web socket server 
 socket.on('connect', () => {
     console.log('successfully connected to socket.io server ');
-    console.log(socket.id);
-})
+    // console.log(socket.id);
+    store.sectSocketId(socket.id);
+});

@@ -13,6 +13,7 @@ export const sectSocketId = (socketId) => {
         ...state,
         socketId
     };
+    console.log(state);
 };
 
 export const setLocalStream = (stream) => {
