@@ -1,5 +1,9 @@
 //we are defining the connection from the client side to the socket.
 
+
+
+import * as store from './store.js' // allows us to get access to all of the exported functions 
+
 const socket = io('/'); // as the port that we are using id under the sam directory we can use '/' symbol to fetch it 
 
 /*
