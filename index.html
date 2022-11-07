@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>ONE TO ONE INTERACTION PLATFORM</title>
+    <title>Meet the strangers</title>
     <link rel='stylesheet' href='./css/style.css'>
 </head>
 
@@ -74,8 +74,6 @@
                     <video class='local_video' id='local_video' muted autoplay></video>
                 </div>
                 <div class='call_buttons_container display_none' id='call_buttons'>
-                    <!-- <div class='call_buttons_container ' id='call_buttons'> -->
-
                     <button class='call_button_small' id='mic_button'>
                         <img src='./utils/images/mic.png' id='mic_button_image'></img>
                     </button>
@@ -83,7 +81,7 @@
                         <img src='./utils/images/camera.png' id='camera_button_image'></img>
                     </button>
                     <button class='call_button_large' id='hang_up_button'>
-                        <!--to end the call-->
+                        <!-- to end the call -->
                         <img src='./utils/images/hangUp.png'></img>
                     </button>
                     <button class='call_button_small' id='screen_sharing_button'>
@@ -114,17 +112,22 @@
         <div class='messenger_container'>
             <div class='messages_container' id='messages_container'></div>
             <div class='new_message_container display_none' id='new_message'>
-                <input class='new_message_input' id='new_message_input' type='text' placeholder="Enter the text message..."></input>
+                <input class='new_message_input' id='new_message_input' type='text' placeholder="Type your message..."></input>
                 <button class='send_message_button' id='send_message_button'>
-                    <img class='send_message_button_image' src='./utils/images/sendMessageButton.png'></img>
+                    <img class='send_message_button_image' src='./utils/images/sendMessageButton.png'></image>
                 </button>
             </div>
         </div>
+        <div id='dialog'></div>
     </div>
     <script src='/socket.io/socket.io.js'></script>
-    <script src='./js/main.js' type='module'></script>
+    <script src='./js/elements.js' type='module'></script>
+    <script src='./js/constants.js' type='module'></script>
+    <script src='./js/ui.js' type='module'></script>
+    <script src='./js/wss.js' type='module'></script>
     <script src='./js/store.js' type='module'></script>
-
+    <script src='./js/webRTCHandler.js' type='module'></script>
+    <script src='./js/main.js' type='module'></script>
 </body>
 
 </html>
