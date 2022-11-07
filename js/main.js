@@ -1,21 +1,10 @@
-//we are defining the connection from the client side to the socket.
-
-
-
-import * as store from "./store.js"; // allows us to get access to all of the exported functions 
-
+import * as store from "./store.js";
 import * as wss from "./wss.js";
 import * as webRTCHandler from "./webRTCHandler.js";
 import * as constants from "./constants.js";
 
 // initialization of socketIO connection
-const socket = io("/"); // as the port that we are using id under the sam directory we can use '/' symbol to fetch it 
-
-/*
-const socket = io('localhost:3000')  // we tell our socket io that socket server is found in 'localhost:3000'
-*/
-
-
+const socket = io("/");
 wss.registerSocketEvents(socket);
 
 //register event listener for personal code copy button
