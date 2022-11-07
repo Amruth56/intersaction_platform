@@ -2,16 +2,15 @@ let state = {
     socketId: null,
     localStream: null,
     remoteStream: null,
+    screenSharingActive: false,
     screenSharingStream: null,
     allowConnectionsFromStrangers: false,
-    screenSharingActive: false,
-
 };
 
-export const sectSocketId = (socketId) => {
+export const setSocketId = (socketId) => {
     state = {
         ...state,
-        socketId
+        socketId,
     };
     console.log(state);
 };
@@ -19,16 +18,16 @@ export const sectSocketId = (socketId) => {
 export const setLocalStream = (stream) => {
     state = {
         ...state,
-        localStream: stream
-    }
-}
+        localStream: stream,
+    };
+};
 
 export const setAllowConnectionsFromStrangers = (allowConnection) => {
     state = {
         ...state,
-        allowConnectionsFromStrangers: allowConnection
-    }
-}
+        allowConnectionsFromStrangers: allowConnection,
+    };
+};
 
 export const setScreenSharingActive = (screenSharingActive) => {
     state = {
@@ -40,7 +39,7 @@ export const setScreenSharingActive = (screenSharingActive) => {
 export const setScreenSharingStream = (stream) => {
     state = {
         ...state,
-        screenSharingActive: stream,
+        screenSharingStream: stream,
     };
 };
 
@@ -51,9 +50,6 @@ export const setRemoteStream = (stream) => {
     };
 };
 
-
-// function to access all these properties that we have created 
-
 export const getState = () => {
     return state;
-}
+};
