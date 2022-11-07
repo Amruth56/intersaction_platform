@@ -2,21 +2,59 @@
 
 
 
-import * as store from './store.js'; // allows us to get access to all of the exported functions 
+import * as store from "./store.js"; // allows us to get access to all of the exported functions 
 
-const socket = io('/'); // as the port that we are using id under the sam directory we can use '/' symbol to fetch it 
+import * as wss from "./wss.js";
+import * as webRTCHandler from "./webRTCHandler.js";
+import * as constants from "./constants.js";
+
+// initialization of socketIO connection
+const socket = io("/"); // as the port that we are using id under the sam directory we can use '/' symbol to fetch it 
 
 /*
 const socket = io('localhost:3000')  // we tell our socket io that socket server is found in 'localhost:3000'
 */
 
 
+wss.registerSocketEvents(socket);
 
-// socket.on --> Set up callback functions for various events on the WebSocket connection.
+//register event listener for personal code copy button
+const personalCodeCopyButton = document.getElementById(
+    "personal_code_copy_button"
+);
+personalCodeCopyButton.addEventListener("click", () => {
+    const personalCode = store.getState().socketId;
+    navigator.clipboard && navigator.clipboard.writeText(personalCode);
+});
 
-// 1st we try to connect to the server and if the connection is a success then we would like to console successfully connected to web socket server 
-socket.on('connect', () => {
-    console.log('successfully connected to socket.io server ');
-    // console.log(socket.id);
-    store.sectSocketId(socket.id);
+// register event listeners for connection buttons
+
+const personalCodeChatButton = document.getElementById(
+    "personal_code_chat_button"
+);
+
+const personalCodeVideoButton = document.getElementById(
+    "personal_code_video_button"
+);
+
+personalCodeChatButton.addEventListener("click", () => {
+    console.log("chat button clicked");
+
+    const calleePersonalCode = document.getElementById(
+        "personal_code_input"
+    ).value;
+    const callType = constants.callType.CHAT_PERSONAL_CODE;
+
+    webRTCHandler.sendPreOffer(callType, calleePersonalCode);
+});
+
+personalCodeVideoButton.addEventListener("click", () => {
+    console.log("video button clicked");
+
+    const calleePersonalCode = document.getElementById(
+        "personal_code_input"
+    ).value;
+    const callType = constants.callType.VIDEO_PERSONAL_CODE;
+
+    webRTCHandler.sendPreOffer(callType, calleePersonalCode);
 });
