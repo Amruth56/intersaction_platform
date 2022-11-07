@@ -49,3 +49,10 @@ export const setRemoteStream = (stream) => {
         remoteStream: stream,
     };
 };
+
+
+// function to access all these properties that we have created 
+
+export const getState = () => {
+    return state;
+}
