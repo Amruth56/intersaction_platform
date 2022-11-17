@@ -14,8 +14,9 @@ export const registerSocketEvents = (socket) => {
         ui.updatePersonalCode(socket.id);
     });
 
-    // listener defined o listen to the pre offer
+    // when pre offer is received by the listener 
     socket.on("pre-offer", (data) => {
+        console.log("pre offer came");
         webRTCHandler.handlePreOffer(data);
     });
 

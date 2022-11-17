@@ -41,11 +41,14 @@ io.on('connection', (Socket) => {
 
     // when client receives a connection code 
     socket.on("pre-offer", (data) => {
+
+        //if pre offer has arrived then 
+        console.log("pre-offer-came");
         const { calleePersonalCode, callType } = data;
 
         // to check if the user exists or if he is available to take calls or chats
         const connectedPeers = connectPeers.find((peerSocketId) => {
-            peerSocketId === calleePersonalCode;
+            peerSocketId === calleePersonalCode; // both will be the same if connect peers is found 
         });
         //if the client exists 
         if (connectedPeer) {
