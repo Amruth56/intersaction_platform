@@ -23,6 +23,7 @@ export const sendPreOffer = (callType, calleePersonalCode) => {
     }
 };
 
+//to handle pre offer sent byb the user to the client.
 export const handlePreOffer = (data) => {
     const { callType, callerSocketId } = data;
 
