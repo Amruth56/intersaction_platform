@@ -39,12 +39,35 @@ io.on('connection', (Socket) => {
     console.log(connectedPeers)
 
 
+    // when client receives a connection code 
+    socket.on("pre-offer", (data) => {
+        const { calleePersonalCode, callType } = data;
+
+        // to check if the user exists or if he is available to take calls or chats
+        const connectedPeers = connectPeers.find((peerSocketId) => {
+            peerSocketId === calleePersonalCode;
+        });
+        //if the client exists 
+        if (connectedPeer) {
+            const data = {
+                callerSocketId: socket.id,
+                callType,
+            };
+            //to whom we are connected 
+            io.to(calleePersonalCode).emit('pre-offer', data);
+
+        }
+
+
+    });
+
+
     //if the client disconnects 
     socket.on('disconnect', () => {
         console.log("User disconnected ");
         //to update the array if the client disconnects 
         const newConnectedPeers = connectedPeers.filter((peerSocketId) => {
-            peerSocketId !== socket.io;
+            peerSocketId !== socket.id;
         });
         connectedPeers = newConnectedPeers;
     })
